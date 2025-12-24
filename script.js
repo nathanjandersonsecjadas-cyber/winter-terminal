@@ -58,7 +58,7 @@
                 openBox: "https://cdn-icons-png.flaticon.com/512/4213/4213653.png",
                 backgroundColor: "#f0f0f0", // Lighter white/off-white
                 isLightBackground: true,
-                gameType: "rps",
+                gameType: "tictactoe",
                 questions: [
                     { q: "When's the start of the second semester?", a: ["jan 14", "january 14", "january 14 2026", "14 jan", "14 january", "14 january 2026", "jan14", "14jan", "january14", "14january", "01.14.26", "14.01.26"] },
                     { q: "What's the titular 'caravan' in Caravan Comrades?", a: ["my car", "the car", "car", "rav4", "rav 4", "toyota rav 4", "rav 4 toyota"] },
@@ -106,7 +106,7 @@
                 openBox: "https://cdn-icons-png.flaticon.com/512/4213/4213653.png",
                 backgroundColor: "#6a9bc0", // Lighter blue-gray
                 isLightBackground: false,
-                gameType: "wordle",
+                gameType: "rps",
                 questions: [
                     { q: "What is 2 + 2?", a: ["4", "four"] },
                     { q: "Is this a simulation?", a: ["yes", "maybe"] },
@@ -1835,3 +1835,4 @@ Notation Ecxample: Kg8 (King to g8)`;
         document.getElementById('name-input').addEventListener("keypress", function(event) {
             if (event.key === "Enter") app.attemptLogin();
         });
+
