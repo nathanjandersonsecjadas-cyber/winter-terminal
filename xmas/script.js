@@ -310,11 +310,11 @@
                 area.innerHTML = ""; 
 
                 if (type === 'tictactoe') {
-                    title.textContent = "TIC TAC TOE";
+                    title.textContent = "TIC TAC TOE PROTOCOL";
                     instructions.textContent = "DEFEAT THE AI TO PROCEED.";
                     GameEngine.tictactoe(area);
                 } else if (type === 'rps') {
-                    title.textContent = "ROCK PAPER SCISSORS";
+                    title.textContent = "RPS PROTOCOL";
                     instructions.textContent = "BEST OF 3 ROUNDS AGAINST THE AI.";
                     GameEngine.rps(area);
                 } else if (type === 'snake') {
@@ -322,11 +322,11 @@
                     instructions.textContent = "CONSUME 10 UNITS TO UNLOCK. ARROW KEYS TO MOVE.";
                     GameEngine.snake(area);
                 } else if (type === 'chess') {
-                    title.textContent = "CHESS PUZZLE";
+                    title.textContent = "CHESS PUZZLE PROTOCOL";
                     instructions.textContent = "WHITE TO MOVE. MATE IN 1. USE NOTATION (e.g. 'Rh8').";
                     GameEngine.chess(area);
                 } else {
-                    title.textContent = "WORDLE HACK";
+                    title.textContent = "WORDLE PROTOCOL";
                     instructions.textContent = "GUESS THE 5-LETTER PASSWORD.";
                     GameEngine.wordle(area);
                 }
@@ -1835,3 +1835,4 @@ Notation Ecxample: Kg8 (King to g8)`;
         document.getElementById('name-input').addEventListener("keypress", function(event) {
             if (event.key === "Enter") app.attemptLogin();
         });
+
