@@ -1497,7 +1497,7 @@ Notation Example: Kg8 (King to g8)`;
                 const input = document.createElement('input');
                 input.type = 'text';
                 input.maxLength = 5;
-                input.placeholder = "ENTER 5-LETTER WORD";
+                input.placeholder = "ENTER 5-LETTER WORD (HINT: ENJOY WITH THE LADS)";
                 input.style.width = '200px';
                 input.style.padding = '8px';
                 input.style.fontSize = '1rem';
