@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <title>???</title>
+</head>
+<body class="crt">
+    <div class="screen-curvature"></div>
+
+    <div id="login-screen" class="screen-section" style="display: flex;">
+        <div class="terminal-box">
+            <h2 class="blink">WHO ARE YOU?</h2>
+            <input type="text" id="name-input" placeholder="ENTER NAME" autocomplete="off">
+            <div id="login-error" class="status-msg">ACCESS DENIED. TRY AGAIN.</div>
+            <button class="action-btn" onclick="app.attemptLogin()">AUTHENTICATE</button>
+        </div>
+    </div>
+
+    <div id="quiz-screen" class="screen-section">
+        <div class="terminal-box">
+            <div id="quiz-progress">SECURITY CHECK: 1/3</div>
+            <div id="quiz-question"></div>
+            <input type="text" id="quiz-input" placeholder="ANSWER..." autocomplete="off">
+            <div id="quiz-error" class="status-msg">INCORRECT</div>
+            <button class="action-btn" onclick="app.submitQuizAnswer()">VERIFY</button>
+        </div>
+    </div>
+
+    <div id="game-screen" class="screen-section">
+        <div class="terminal-box" style="width: 500px;">
+            <h2 id="game-title" class="blink">CHALLENGE INITIATED</h2>
+            <p id="game-instructions" style="font-size: 0.8rem; color:#aaa; margin-bottom: 20px;"></p>
+            
+            <div id="game-area">
+                <!-- Game content will be inserted here -->
+            </div>
+            
+            <div id="game-status" class="status-msg" style="opacity: 1; margin-top: 10px;"></div>
+        </div>
+    </div>
+
+    <div id="gift-screen" class="screen-section">
+        <canvas id="snow-canvas"></canvas>
+        <div id="gift-container">
+            <img id="gift-img" src="red_present.png" alt="Gift Box">
+            <p id="message">Tap to open...</p>
+            <button id="reset-btn" class="action-btn" style="display:none;" onclick="app.resetSite()">RESET TERMINAL</button>
+        </div>
+    </div>
+
+    <audio id="bg-music-pre"></audio>
+    <audio id="bg-music"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+        /* =========================================
+           CORE CRT & FONT STYLES
+           ========================================= */
+        /* ===== CRT EFFECT ===== */
+        /* Based on D3NN7 and Patrick Hlauke's CRT effect */
+        @font-face {
+            font-family: 'Noto Sans Display';
+            font-style: normal;
+            font-weight: 400;
+            src: url(./fonts/NotoSansDisplay-Regular.ttf);
+        }
+        
+        /* Apply CRT effect to all text - LIGHTENED VERSION */
+        body, html, #login-screen, #gift-screen, .terminal-box, #message, #reset-btn, input, button, .terminal-text {
+            font-family: 'Courier New', 'Noto Sans Display', monospace;
+            color: #eee;
+            text-shadow: 0.06rem 0 0.06rem rgba(255, 255, 255, 0.5), -0.125rem 0 0.06rem rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.125em;
+            animation-duration: 0.01s;
+            animation-name: textflicker;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        
+        /* CRT text flicker animation - Lightened version */
+        @keyframes textflicker {
+            from {
+                text-shadow: 1px 0 0 rgba(255, 255, 255, 0.5), -2px 0 0 rgba(0, 0, 0, 0.5);
+            }
+            to {
+                text-shadow: 2px 0.5px 1px rgba(255, 255, 255, 0.4), -1px -0.5px 1px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        /* CRT scanlines overlay - LIGHTENED */
+        .crt::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%, 
+                rgba(0, 0, 0, 0.1) 50%
+            );
+            background-size: 100% 4px;
+            z-index: 100;
+            pointer-events: none;
+        }
+        
+        /* CRT glow/vignette - LIGHTENED */
+        .crt::after {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.05);
+            opacity: 0.2;
+            z-index: 99;
+            pointer-events: none;
+            box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.3);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background: #111;
+            user-select: none;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        /* Screen Curvature */
+        .screen-curvature {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 98;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(0,0,0,0) 0%,
+                rgba(0,0,0,0) 60%,
+                rgba(0,0,0,0.05) 100%
+            );
+        }
+
+        /* =========================================
+           COMMON LAYOUTS
+           ========================================= */
+        .screen-section {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #000;
+        }
+
+        .terminal-box {
+            text-align: center;
+            width: 400px;
+            max-width: 90%;
+            position: relative;
+            z-index: 101;
+        }
+
+        input[type="text"] {
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            border-bottom: 1px solid #777;
+            color: #fff;
+            font-size: 1.2rem;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            outline: none;
+            text-transform: uppercase;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-sizing: border-box;
+            border-radius: 0;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+        }
+
+        input[type="text"]:focus {
+            border-bottom: 2px solid #fff;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .action-btn {
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #777;
+            color: #aaa;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+        }
+
+        .action-btn:hover {
+            border-color: #fff;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .status-msg {
+            color: #ff5555;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            min-height: 20px;
+            opacity: 0;
+            text-shadow: 0.06rem 0 0.06rem rgba(255, 85, 85, 0.5), -0.125rem 0 0.06rem rgba(0, 0, 0, 0.5);
+        }
+
+        /* =========================================
+           SPECIFIC SCREENS
+           ========================================= */
+        
+        /* 1. Login */
+        h2.blink { 
+            animation: blinking 1.5s infinite, textflicker 0.01s infinite alternate;
+            font-weight: normal;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        @keyframes blinking { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+
+        /* 2. Quiz */
+        #quiz-question {
+            font-size: 1.1rem;
+            min-height: 60px;
+            margin-bottom: 10px;
+            text-align: left;
+            border-left: 2px solid #fff;
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+        }
+        #quiz-progress {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        /* 3. Games Container */
+        #game-area {
+            border: 1px solid #333;
+            padding: 20px;
+            min-height: 300px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* GAME: Tic Tac Toe - CENTERED */
+        .ttt-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 5px; 
+            width: 200px; 
+            margin: 0 auto;
+        }
+        .ttt-cell { 
+            width: 60px; 
+            height: 60px; 
+            border: 1px solid #777; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 2rem; 
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+        .ttt-cell:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        .ttt-cell::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.05);
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+        .ttt-cell:hover::after {
+            opacity: 1;
+        }
+        
+        /* GAME: Snake */
+        canvas#snake-canvas { 
+            border: 1px solid #fff; 
+            background: #000; 
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* GAME: Chess */
+        .chess-board-text { 
+            font-family: monospace; 
+            white-space: pre; 
+            line-height: 1.2; 
+            font-size: 1.2rem; 
+            text-align: center; 
+            margin-bottom: 15px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* GAME: Wordle - CENTERED */
+        .wordle-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .wordle-row { 
+            display: flex; 
+            gap: 5px; 
+            margin-bottom: 5px; 
+            justify-content: center; 
+        }
+        .wordle-tile { 
+            width: 40px; 
+            height: 40px; 
+            border: 1px solid #555; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-transform: uppercase; 
+            font-weight: bold; 
+        }
+        .wordle-correct { background: #fff; color: #000; border-color: #fff; }
+        .wordle-present { border-color: #fff; border-style: dashed; }
+        .wordle-absent { opacity: 0.3; }
+
+        /* 4. Gift Screen */
+        #gift-screen { 
+            transition: background-color 1s ease-in-out; 
+        }
+        
+        #gift-container {
+            text-align: center; 
+            padding: 30px;
+            background: rgba(0,0,0,0.1); 
+            border: 1px solid rgba(123, 182, 206, 0.1);
+            border-radius: 5px; 
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(123, 182, 206, 0.1),
+                        0 0 60px rgba(123, 182, 206, 0.05),
+                        inset 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+        
+        #gift-img { 
+            width: 250px; 
+            cursor: pointer; 
+            transition: transform 0.2s; 
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+        
+        #message {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #e0e0e0;
+            min-height: 40px;
+            font-weight: 300;
+            max-width: 800px;
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+            border: 1px solid rgba(123, 182, 206, 0.1);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        #snow-canvas { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            pointer-events: none; 
+            z-index: 5; 
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+        
+        /* Light background adjustments */
+        .light-background #gift-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1),
+                        0 0 60px rgba(0, 0, 0, 0.05),
+                        inset 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .light-background #message {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(0, 0, 0, 0.2);
+            color: #222;
+        }
+
+        .light-background #reset-btn {
+            background-color: rgba(0, 0, 0, 0.1);
+            color: #222;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .light-background #reset-btn:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: #000;
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animations */
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        .shake-anim { animation: shake 0.5s; }
+        
+        @keyframes popScale {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .open-anim { animation: popScale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* RPS Choice Button Hover Effects */
+        .rps-choice-btn:hover {
+            filter: brightness(1.2);
+        }
+
+        /* RPS Choice Display */
+        .rps-choice-display {
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            min-width: 120px;
+            transition: all 0.3s;
+        }
+
+        /* CRT scanline effect for RPS area */
+        #game-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.25) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        /* RPS Round indicator glow */
+        @keyframes roundGlow {
+            0% { text-shadow: 0 0 5px #ffffaa; }
+            50% { text-shadow: 0 0 20px #ffffaa, 0 0 30px #ffaa00; }
+            100% { text-shadow: 0 0 5px #ffffaa; }
+        }
