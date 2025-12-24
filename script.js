@@ -1,4 +1,4 @@
-        /* =========================================
+/* =========================================
            SOUND FX ENGINE (Web Audio API)
            ========================================= */
         const SoundFX = {
@@ -195,6 +195,8 @@
             isGiftOpen: false,
             audio: document.getElementById('bg-music'),
             audioPre: document.getElementById('bg-music-pre'),
+            typewriterInterval: null, // Track typewriter interval
+            isTyping: false, // Prevent actions during typing
 
             /* --- LOGIN LOGIC --- */
             attemptLogin: function() {
@@ -238,38 +240,61 @@
             startQuiz: function() {
                 this.loadQuestion();
                 document.getElementById('quiz-input').addEventListener("keypress", (e) => {
-                    if (e.key === "Enter") this.submitQuizAnswer();
+                    if (e.key === "Enter" && !this.isTyping) this.submitQuizAnswer();
                 });
             },
 
             loadQuestion: function() {
+                // Clear any existing typewriter
+                if (this.typewriterInterval) {
+                    clearInterval(this.typewriterInterval);
+                    this.typewriterInterval = null;
+                }
+                
+                this.isTyping = true;
+                
                 const qObj = this.user.questions[this.quizIndex];
                 const display = document.getElementById('quiz-question');
                 const progress = document.getElementById('quiz-progress');
                 const input = document.getElementById('quiz-input');
                 const error = document.getElementById('quiz-error');
+                const verifyBtn = document.querySelector('#quiz-screen .action-btn');
 
                 progress.textContent = `SECURITY CHECK: ${this.quizIndex + 1}/${this.user.questions.length}`;
                 input.value = "";
+                input.disabled = true;
+                verifyBtn.disabled = true;
                 error.style.opacity = 0;
                 
                 // Typewriter effect with sound
                 display.textContent = "";
                 let i = 0;
                 const txt = qObj.q;
-                const typeInterval = setInterval(() => {
+                
+                const typeNextChar = () => {
                     if (i < txt.length) {
                         display.textContent += txt.charAt(i);
-                        if(i % 3 === 0) SoundFX.playType(); // Sound every 3 chars
+                        if(i % 3 === 0) SoundFX.playType();
                         i++;
+                        this.typewriterInterval = setTimeout(typeNextChar, 40);
                     } else {
-                        clearInterval(typeInterval);
+                        // Typewriter complete
+                        this.typewriterInterval = null;
+                        this.isTyping = false;
+                        input.disabled = false;
+                        verifyBtn.disabled = false;
                         input.focus();
                     }
-                }, 40);
+                };
+                
+                // Start typewriter
+                typeNextChar();
             },
 
             submitQuizAnswer: function() {
+                // Prevent submission while typing
+                if (this.isTyping) return;
+                
                 const input = document.getElementById('quiz-input');
                 const error = document.getElementById('quiz-error');
                 const val = input.value.trim().toLowerCase();
@@ -281,6 +306,11 @@
                     if (this.quizIndex >= this.user.questions.length) {
                         this.transition('quiz-screen', 'game-screen', () => this.startGame());
                     } else {
+                        // Clear any pending timeouts/intervals
+                        if (this.typewriterInterval) {
+                            clearTimeout(this.typewriterInterval);
+                            this.typewriterInterval = null;
+                        }
                         this.loadQuestion();
                     }
                 } else {
@@ -477,6 +507,13 @@
 
             /* --- UTILITIES --- */
             transition: function(fromId, toId, callback) {
+                // Clear any pending typewriter intervals
+                if (this.typewriterInterval) {
+                    clearTimeout(this.typewriterInterval);
+                    this.typewriterInterval = null;
+                }
+                this.isTyping = false;
+                
                 const fromEl = document.getElementById(fromId);
                 const toEl = document.getElementById(toId);
                 const flash = document.createElement('div');
@@ -520,6 +557,12 @@
             },
 
             resetSite: function() {
+                // Clear all intervals and timeouts
+                if (this.typewriterInterval) {
+                    clearTimeout(this.typewriterInterval);
+                    this.typewriterInterval = null;
+                }
+                
                 this.stopPreGiftMusic();
                 if (this.audio) {
                     this.audio.pause();
@@ -1835,6 +1878,3 @@ Notation Ecxample: Kg8 (King to g8)`;
         document.getElementById('name-input').addEventListener("keypress", function(event) {
             if (event.key === "Enter") app.attemptLogin();
         });
-
-
-
