@@ -39,7 +39,7 @@
                 msg: "Merry Christmas, Angel! I hope you enjoyed this short, weird project. It's gonna be almost 8 years since we met next year. It's been a wild ride - thank you for all the wonderful memories - from orientation day in the first day of grade 6 all the way into the new memories we will make in our second semester of college. I know life's had its ups and downs, and I know we've gone through many hardships along the way, but hey, at least we know we'll be there for each other as best friends. I sincerely hope we'll continue to be best friends for years to come. Here's to a wonderful 2026!",
                 audio: "music/angel.mp3",
                 closedBox: "images/blue_present.png",
-                openBox: "https://cdn-icons-png.flaticon.com/512/4213/4213653.png",
+                openBox: "images/sylus.png",
                 backgroundColor: "#4a7bff", // Lighter blue
                 isLightBackground: false,
                 gameType: "wordle",
@@ -55,7 +55,7 @@
                 msg: "Happy Holidays, Jim! I hope you're doing well. I know it's only been a short while since we met, but I appreciate the friendship we've built thus far. Again, thank you for letting us carpool with you after class. See you in 2026!",
                 audio: "music/jim.mp3",
                 closedBox: "images/white_present.png", // Changed for Jim
-                openBox: "https://cdn-icons-png.flaticon.com/512/4213/4213653.png",
+                openBox: "images/jim.png",
                 backgroundColor: "#f0f0f0", // Lighter white/off-white
                 isLightBackground: true,
                 gameType: "tictactoe",
@@ -71,7 +71,7 @@
                 msg: "Merry Christmas Luigi! I hope you've been having a fun Christmas break! I always appreciate the energy you bring into everything. See you next year and here's to a successful second semester!",
                 audio: "music/luigi.mp3",
                 closedBox: "images/green_present.png", // Changed for Luigi
-                openBox: "https://cdn-icons-png.flaticon.com/512/4213/4213653.png",
+                openBox: "images/luigi.png",
                 backgroundColor: "#5a9e5a", // Lighter green
                 isLightBackground: false,
                 gameType: "snake",
@@ -87,7 +87,7 @@
                 msg: "Happy Holidays Polinar! Wishing you joy and peace. I hope you're doing well. Thank you for all the fun times and memories we've shared. Who knew in fifth grade that we'd go to the same college? Cheers to a more years to come and to a successful second semester!",
                 audio: "music/polinar.mp3",
                 closedBox: "images/red_present.png", // Kept red for Polinar
-                openBox: "https://cdn-icons-png.flaticon.com/512/4213/4213653.png",
+                openBox: "images/polinar.png",
                 backgroundColor: "#c44d4d", // Lighter red
                 isLightBackground: false,
                 gameType: "chess",
@@ -1835,4 +1835,5 @@ Notation Ecxample: Kg8 (King to g8)`;
         document.getElementById('name-input').addEventListener("keypress", function(event) {
             if (event.key === "Enter") app.attemptLogin();
         });
+
 
