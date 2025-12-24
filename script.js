@@ -1284,9 +1284,9 @@
 3  p . . . . B p p
 2  . . . . . q . k
 1  . . . . Q . . .
-Black (uppercase) and White (lowercase). Black to move. Mate in 1.
-Notation Ecxample: Kg8 (King to g8)`;
-                
+Black (uppercase) and White (lowercase). 
+Black to move. Mate in 1.
+Notation Example: Kg8 (King to g8)`;
                 // Input area
                 const inputArea = document.createElement('div');
                 inputArea.style.display = 'flex';
