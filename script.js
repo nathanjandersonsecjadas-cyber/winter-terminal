@@ -1200,7 +1200,7 @@
 
             // 4. CHESS WITH THREE CHANCES
             chess: function(container) {
-                const correctMove = "qf8";
+                const correctMove = "qh1";
                 let chances = 3;
                 
                 // Clear container
@@ -1233,15 +1233,15 @@
                 boardDisplay.style.whiteSpace = 'pre';
                 boardDisplay.textContent = 
 `  a b c d e f g h
-8 . . . . . . . K
-7 . . . . . Q . .
-6 . . . . . . W .
-5 . . . . . . . .
-4 . . . . . . . .
-3 . . . . . . . .
-2 . . . . . . . .
-1 . . . . . . . .
-White to move. Mate in 1.
+8  . . . . . . . K
+7  . . . . . . P .
+6  P b . B b . . P
+5  . . . . . . . .
+4  . p . . . . . .
+3  p . . . . B p p
+2  . . . . . q . k
+1  . . . . Q . . .
+Black (uppercase) to move. Mate in 1.
 Notation Ecxample: Kg8 (King to g8)`;
                 
                 // Input area
@@ -1835,5 +1835,6 @@ Notation Ecxample: Kg8 (King to g8)`;
         document.getElementById('name-input').addEventListener("keypress", function(event) {
             if (event.key === "Enter") app.attemptLogin();
         });
+
 
 
