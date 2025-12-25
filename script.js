@@ -36,7 +36,7 @@
            ========================================= */
         const USER_CONFIG = {
             "angel": {
-                msg: "Merry Christmas, Angel! I hope you enjoyed this short, weird project. It's gonna be almost 8 years since we met next year. It's been a wild ride - thank you for all the wonderful memories - from orientation day in the first day of grade 6 all the way into the new memories we will make in our second semester of college. I know life's had its ups and downs, and I know we've gone through many hardships along the way, but hey, at least we know we'll be there for each other as best friends. I sincerely hope we'll continue to be best friends for years to come. Here's to a wonderful 2026!",
+                msg: "Merry Christmas, Angel! I hope you enjoyed this short, weird project. It was a blast to work on this! It's gonna be almost 8 years since we met next year. It's been a wild ride - thank you for all the wonderful memories - from orientation day in the first day of grade 6 all the way into the new memories we will make in our second semester of college. I know life's had its ups and downs, and I know we've gone through many hardships along the way, but hey, at least we know we'll be there for each other as best friends. I sincerely hope we'll continue to be best friends for years to come. Thank you for everything and here's to a wonderful 2026!",
                 audio: "music/angel.mp3",
                 closedBox: "images/blue_present.png",
                 openBox: "images/sylus.png",
@@ -52,7 +52,7 @@
                 ]
             },
             "jim": {
-                msg: "Happy Holidays, Jim! I hope you're doing well. I know it's only been a short while since we met, but I appreciate the friendship we've built thus far. Again, thank you for letting us carpool with you after class. See you in 2026!",
+                msg: "Happy Holidays, Jim! I hope you're doing well. I know it's only been a short while since we met, but I appreciate the friendship we've built thus far. Again, thank you for letting us carpool with you after class almost everyday. Looking forward to seeing you in 2026!",
                 audio: "music/jim.mp3",
                 closedBox: "images/white_present.png", // Changed for Jim
                 openBox: "images/jim.png",
@@ -68,7 +68,7 @@
                 ]
             },
             "luigi": {
-                msg: "Merry Christmas Luigi! I hope you've been having a fun Christmas break! I always appreciate the energy you bring into everything. See you next year and here's to a successful second semester!",
+                msg: "Merry Christmas Luigi! I hope you've been having a fun Christmas break! I always appreciate the energy you bring into everything and I hope you continue to bring that energy in the semesters to come! See you next year and here's to a successful second semester!",
                 audio: "music/luigi.mp3",
                 closedBox: "images/green_present.png", // Changed for Luigi
                 openBox: "images/luigi.png",
@@ -84,7 +84,7 @@
                 ]
             },
             "polinar": {
-                msg: "Happy Holidays Polinar! Wishing you joy and peace. I hope you're doing well. Thank you for all the fun times and memories we've shared. Who knew in fifth grade that we'd go to the same college? Cheers to a more years to come and to a successful second semester!",
+                msg: "Happy Holidays Polinar! Wishing you joy and peace. I hope you're doing well. Thank you for all the fun times and memories we've shared. Who knew in fifth grade that we'd go to the same college eventually? It's been quite the journey! Cheers to more years to come and to a successful second semester!",
                 audio: "music/polinar.mp3",
                 closedBox: "images/red_present.png", // Kept red for Polinar
                 openBox: "images/polinar.png",
@@ -126,6 +126,448 @@
                     { q: "Is this a simulation?", a: ["yes", "maybe"] },
                     { q: "Type 'hello'", a: ["hello"] }
                 ]
+            }
+        };
+
+        /* =========================================
+                NARRATIVE DATA
+        ========================================= */
+        const NARRATIVE_DATA = {
+            0: {
+                comment: "fade in",
+                text: "YOU ARE ON A CARAVAN ON THE ROAD.",
+                nextSegment: 1
+            },
+            1: {
+                comment: "fade in",
+                text: "AND WITH THAT CARAVAN, YOU ARE GOING ON A JOURNEY.",
+                nextSegment: 2
+            },
+            2: {
+                comment: "fade in",
+                text: "AND THAT JOURNEY IS NOW NEARING ITS END.",
+                nextSegment: 3
+            },
+            3: {
+                comment: "fade in",
+                text: "BUT YOU ARE ASLEEP.",
+                nextSegment: 4
+            },
+            4: {
+                comment: "typewriter",
+                text: "THE FAINT WHIRRING OF THE ENGINE HAS CRADLED YOU IN ITS MANGER. YOU ARE CURRENTLY NOT *AWARE* IN THE TRADITIONAL SENSE, BUT YOU DO *FEEL* THE SENSATION OF WARMTH AMIDST THE COLD, OF A WARM CUP OF COFFEE ON A RAINY DAY.",
+                nextSegment: 5
+            },
+            5: {
+                comment: "typewriter",
+                text: "IT WAS A PLACE WITHOUT EDGES, A GENTLE OBLIVION. YOU COULD HAVE STAYED THERE FOR AN EON, SUSPENDED IN THAT LIQUID DARK.",
+                nextSegment: 6
+            },
+            6: {
+                comment: "typewriter",
+                text: "BUT THEN, A RENDING OF THE WORLD'S FABRIC–",
+                nextSegment: 7
+            },
+            7: {
+                comment: "fast typewriter",
+                text: "WAPANG! CRAK! PWOOOOOOOSH!",
+                fast: true,
+                nextSegment: 8
+            },
+            8: {
+                comment: "fast typewriter",
+                text: "SOUND ARRIVED FIRST, A VIOLENT TRANSLATION. YOUR BODY JOLTED BEFORE YOUR MIND COULD FOLLOW. VOICES PIERCED THE AIR, FOUR STRANDS OF PANIC BRAIDING INTO A SINGLE CORD OF CHAOS.",
+                fast: true,
+                nextSegment: 9
+            },
+            9: {
+                comment: "typewriter; comment: color #4a7bff",
+                text: "[color=#4a7bff]\"-AAAAAAHHHH! WHAT HAPPENED-\"[/color]",
+                nextSegment: 10
+            },
+            10: {
+                comment: "typewriter; comment: color #f0f0f0",
+                text: "[color=#f0f0f0]\"-I dunno it kinda just-\"[/color]",
+                nextSegment: 11
+            },
+            11: {
+                comment: "typewriter; comment: color #5a9e5a",
+                text: "[color=#5a9e5a]\"-Guys relax we can-\"[/color]",
+                nextSegment: 12
+            },
+            12: {
+                comment: "typewriter; comment: color #c44d4d",
+                text: "[color=#c44d4d]\"-What the skibidi-\"[/color]",
+                nextSegment: 13
+            },
+            13: {
+                comment: "typewriter",
+                text: "CONSCIOUSNESS WAVERED, A TIDE PULLING BACK. THE METALLIC SCRAPE OF A DOOR HINGE. THE GLUE OF SLEEP STILL GUMBED YOUR EYELIDS SHUT. THE WORLD PAINTED ITSELF IN SMEARS OF COLOR AND MEANINGLESS LIGHT. YOUR GLASSES WERE GONE. A SMALL, SIGNIFICANT ABSENCE. WHERE WILL YOU SEARCH FOR THEM?",
+                nextSegment: 14
+            },
+            14: {
+                comment: "player choice",
+                text: "",
+                choices: [
+                    {
+                        text: "near my feet, that's always the best place!",
+                        nextSegment: 15
+                    },
+                    {
+                        text: "probably fell on my lap",
+                        nextSegment: 21
+                    },
+                    {
+                        text: "on the lap of the one seated next to me",
+                        nextSegment: 26
+                    }
+                ]
+            },
+            // Path 1: Search near feet
+            15: {
+                comment: "player choice 1 dialogue start",
+                text: "YOUR HAND GROPED THROUGH THE DARK SPACE NEAR YOUR FEET. YOUR FINGERS MET ONLY DUST AND THE GRIT OF THE CAR'S ANCIENT CARPET, FINE AS POWDERED BONE. NOTHING.",
+                nextSegment: 16
+            },
+            16: {
+                comment: "typewriter; comment: color #4a7bff",
+                text: "[color=#4a7bff]\"Aaand Nathan's awake! Oy! Oy! Guys! Polinar! Jim! Luigi! Oh my goodness, they're deaf.\"[/color]",
+                nextSegment: 17
+            },
+            17: {
+                comment: "typewriter",
+                text: "A PRESENCE SHIFTED BESIDE YOU, SENSING YOUR FRANTIC MOVEMENT.",
+                nextSegment: 18
+            },
+            18: {
+                comment: "typewriter; comment: color #4a7bff",
+                text: "[color=#4a7bff]\"Looking for this?\"[/color]",
+                nextSegment: 19
+            },
+            19: {
+                comment: "typewriter",
+                text: "THE FRAMES SLID INTO YOUR HAND, STILL WARM. ANGEL. YOU HOOKED THEM OVER YOUR EARS, AND THE WORLD SNAPPED INTO ITS USUAL, FAULTY CLARITY.",
+                nextSegment: 20
+            },
+            20: {
+                comment: "typewriter; comment: color #4a7bff",
+                text: "[color=#4a7bff]\"Blind ahh.\"[/color]",
+                playerDialogue: "Give me some grace, I just woke up haha. What the helly is going on?",
+                nextSegment: 30
+            },
+            // Path 2: Search on lap
+            21: {
+                comment: "player choice 2 dialogue start",
+                text: "YOUR HAND MOVED TO YOUR LAP, A JOURNEY OF SIX INCHES. THERE, YOUR FINGERS CLOSED AROUND THE COOL, FAMILIAR ARCH OF TEMPLE AND LENS. A SMALL MIRACLE OF ORDER. YOU PUT THEM ON.",
+                nextSegment: 22
+            },
+            22: {
+                comment: "typewriter; comment: color #4a7bff",
+                text: "[color=#4a7bff]\"Aaand Nathan's awake! Oy! Oy! Guys! Polinar! Jim! Luigi! Oh my goodness, they're deaf.\"[/color]\n\nIT WAS ANGEL.",
+                nextSegment: 23
+            },
+            23: {
+                text: "",
+                playerDialogue: "Wha- what the hell is going on?",
+                nextSegment: 30
+            },
+            // Path 3: Search neighbor's lap
+            26: {
+                comment: "player choice 3 dialogue start",
+                text: "YOU REACHED TOWARD THE INDISTINCT SHAPE BESIDE YOU, YOUR HAND ENCROACHING ON FOREIGN TERRITORY.",
+                nextSegment: 27
+            },
+            27: {
+                comment: "typewriter; comment: color #4a7bff",
+                text: "[color=#4a7bff]\"Hey! Hey!\"[/color]",
+                nextSegment: 28
+            },
+            28: {
+                comment: "typewriter",
+                text: "ANGEL. A SNAP OF FINGERS. SHE GESTURED TO HER OTHER HAND, WHICH HELD YOUR GLASSES ALOFT, A PEACEFUL SURRENDER.",
+                nextSegment: 29
+            },
+            29: {
+                comment: "typewriter; comment: color #4a7bff",
+                text: "[color=#4a7bff]\"Here.\"[/color]\n\nSHE PLACED THEM IN YOUR WAITING PALM. THEY HAD BEEN ON YOUR LAP ALL ALONG. YOU PUT THEM ON.",
+                nextSegment: 20
+            },
+            // Continue from all paths
+            30: {
+                comment: "normal dialogue after any player choice",
+                text: "[color=#4a7bff]\"The car broke down. I have no idea how the guys are doing outside, and I don't think we're getting home. It's a travesty!\"[/color]",
+                nextSegment: 31
+            },
+            31: {
+                comment: "typewriter",
+                text: "YOU LOOKED OUT THE WINDOW. THE SCENE WAS A SILENT FILM: JIM AND POLINAR BENT OVER A WILTED TIRE LIKE SURGEONS OVER A FAILING ORGAN. LUIGI STOOD APART, STARING DOWN THE EMPTY ROAD, HIS FOOT TAPPING A TATTOO ONLY HE COULD HEAR.",
+                nextSegment: 32
+            },
+            32: {
+                comment: "player choice",
+                text: "",
+                choices: [
+                    {
+                        text: "what?!",
+                        nextSegment: 33
+                    },
+                    {
+                        text: "bruh, we're gonna have to sleep here!",
+                        nextSegment: 35
+                    }
+                ]
+            },
+            33: {
+                comment: "player choice 1 dialogue start",
+                text: "[color=#4a7bff]\"Yep! And we're in the middle of nowhere, out of the main roads!\"[/color]",
+                nextSegment: 34
+            },
+            35: {
+                comment: "player choice 2 dialogue start",
+                text: "[color=#4a7bff]\"No, don't jinx us! I don't know how I'm going to explain this to my parents. We're in the middle of nowhere too, out of the main roads!\"[/color]",
+                nextSegment: 34
+            },
+            34: {
+                comment: "normal dialogue after any player choice",
+                text: "THE CAR DOOR GROANED OPEN AGAIN, ADMITTING A RUSH OF HUMID, UNFAMILIAR AIR.",
+                nextSegment: 36
+            },
+            36: {
+                comment: "typewriter; comment: color #f0f0f0",
+                text: "[color=#f0f0f0]\"Okay, I think I found the problem.\"[/color]",
+                nextSegment: 37
+            },
+            37: {
+                comment: "typewriter",
+                text: "IT WAS JIM. HIS FACE WAS A MASK OF SWEAT AND ROAD GRIME, HIS EYES DARK WITH CONCENTRATION.",
+                nextSegment: 38
+            },
+            38: {
+                comment: "typewriter; comment: color #f0f0f0",
+                text: "[color=#f0f0f0]\"There was a dang nail on the road. This one. Pierced one of our tires.\"[/color]",
+                nextSegment: 39
+            },
+            39: {
+                comment: "typewriter",
+                text: "BETWEEN HIS GLOVED FINGERS, HE HELD A NAIL. IT WAS LONG, SAVAGE, AND WEATHERED TO THE COLOR OF OLD BLOOD.",
+                nextSegment: 40
+            },
+            40: {
+                comment: "typewriter; comment: color #4a7bff",
+                text: "[color=#4a7bff]\"Yeesh! What's with our luck?!\"[/color]",
+                nextSegment: 41
+            },
+            41: {
+                comment: "typewriter",
+                text: "THEN, MOTION. LUIGI BROKE FROM HIS VIGIL AT THE ROAD'S EDGE AND LOPED TOWARD THEM, HIS MOVEMENTS SUDDENLY ANIMATED.",
+                nextSegment: 42
+            },
+            42: {
+                comment: "typewriter; comment: color #5a9e5a",
+                text: "[color=#5a9e5a]\"No, I think we had to get stranded this way. It was the only way.\"[/color]",
+                nextSegment: 43
+            },
+            43: {
+                comment: "typewriter; comment: color #4a7bff",
+                text: "[color=#4a7bff]\"What?!\"[/color]",
+                nextSegment: 44
+            },
+            44: {
+                comment: "typewriter; comment: color #f0f0f0",
+                text: "[color=#f0f0f0]\"What the f*ck are you talking about Luigi?\"[/color]",
+                nextSegment: 45
+            },
+            45: {
+                text: "",
+                playerDialogue: "He's gone crazy.",
+                nextSegment: 46
+            },
+            46: {
+                comment: "typewriter; comment: color #5a9e5a",
+                text: "[color=#5a9e5a]\"We had to strand ourselves so we could get help. Look- HELP US PLEASE! ANYONE OUT THERE, PLEASE COME HE-!\"[/color]",
+                nextSegment: 47
+            },
+            47: {
+                comment: "typewriter",
+                text: "JIM'S HAND SHOOT OUT, MUFFLING THE SHOUT AGAINST LUIGI'S JACKET.",
+                nextSegment: 48
+            },
+            48: {
+                comment: "typewriter; comment: color #f0f0f0",
+                text: "[color=#f0f0f0]\"Yo, chill, what if someone actually hears us? We're cooked here if a holdapper pulls up.\"[/color]",
+                nextSegment: 49
+            },
+            49: {
+                comment: "typewriter; comment: color #5a9e5a",
+                text: "[color=#5a9e5a]\"I know they won't be.\"[/color]",
+                nextSegment: 50
+            },
+            50: {
+                text: "",
+                playerDialogue: "How?",
+                nextSegment: 51
+            },
+            51: {
+                comment: "typewriter; comment: color #5a9e5a",
+                text: "[color=#5a9e5a]\"They told me.\"[/color]",
+                nextSegment: 52
+            },
+            52: {
+                comment: "typewriter; comment: color #4a7bff",
+                text: "[color=#4a7bff]\"Who's they?\"[/color]",
+                nextSegment: 53
+            },
+            53: {
+                comment: "typewriter",
+                text: "OUTSIDE, POLINAR TURNED AWAY FROM THE TIRE, HIS GAZE LIFTING TO THE ROAD'S VANISHING POINT.",
+                nextSegment: 54
+            },
+            54: {
+                comment: "typewriter; comment: color #5a9e5a",
+                text: "[color=#5a9e5a]\"Them.\"[/color]",
+                nextSegment: 55
+            },
+            55: {
+                comment: "typewriter",
+                text: "A SOUND, THEN. A DEEP, VIBRANT HUM THAT GREW FROM A WHISPER TO A ROAR, FILLING THE SPACES BETWEEN THE TREES. THE SONG OF A MOTORCYCLE.",
+                nextSegment: 56
+            },
+            56: {
+                comment: "typewriter; comment: color #c44d4d",
+                text: "[color=#c44d4d]\"Guys, someone's coming.\"[/color]",
+                nextSegment: 57
+            },
+            57: {
+                comment: "typewriter",
+                text: "THE BIKE SLID TO A HALT BESIDE THE CAR, DUST SETTLING AROUND IT LIKE A VEIL. A FIGURE DISMOUNTED, ANONYMOUS IN ITS HELMET. POLINAR AND LUIGI MOVED FORWARD. JIM, ANGEL, AND YOU HELD BACK.",
+                nextSegment: 58
+            },
+            58: {
+                comment: "typewriter; comment: color #c44d4d",
+                text: "[color=#c44d4d]\"We should get this guy to help us.\"[/color]",
+                nextSegment: 59
+            },
+            59: {
+                comment: "typewriter; comment: color #5a9e5a",
+                text: "[color=#5a9e5a]\"Told ya.\"[/color]",
+                nextSegment: 60
+            },
+            60: {
+                comment: "typewriter",
+                text: "JIM STEPPED OUT TO JOIN THEM, HIS POSTURE WARY.",
+                nextSegment: 61
+            },
+            61: {
+                comment: "typewriter; comment: color #f0f0f0",
+                text: "[color=#f0f0f0]\"Yoyoyo, I don't know who this guy is, but we have to be careful.\"[/color]",
+                nextSegment: 62
+            },
+            62: {
+                comment: "typewriter",
+                text: "INSIDE THE CAR, YOU AND ANGEL BECAME STATUES. YOU HELD YOUR BREATH, AS IF EVEN THE SOUND OF YOUR BLOOD MIGHT DRAW ATTENTION.",
+                nextSegment: 63
+            },
+            63: {
+                comment: "typewriter; comment: color #5a9e5a",
+                text: "[color=#5a9e5a]\"I mean look at his face, isn't he trustworthy?\"[/color]",
+                nextSegment: 64
+            },
+            64: {
+                comment: "typewriter",
+                text: "YOU SAW THE MOTORIST REACH FOR HIS HELMET. BUT AS HE LIFTED IT, JIM'S BODY BLOCKED THE VIEW. INSTEAD, A LIGHT BLOOMED—PURE, WHITE, AND PAINFUL. IT WAS NOT THE LIGHT OF SUN OR LAMP, BUT OF SOMETHING EMPTYING ITSELF INTO THE WORLD. YOU FLINCHED, BURYING YOUR FACE AGAINST THE SEAT WITH ANGEL.",
+                nextSegment: 65
+            },
+            65: {
+                comment: "typewriter; comment: color #f0f0f0",
+                text: "[color=#f0f0f0]\"No you're right. Angel, Nathan, could you come over here?\"[/color]",
+                nextSegment: 66
+            },
+            66: {
+                comment: "typewriter",
+                text: "THE VOICE WAS JIM'S, YET IT WASN'T. IT CARRIED A FLAT, ECHOING QUALITY, LIKE A RECORDING PLAYED IN AN EMPTY ROOM. ANGEL'S EYES WIDE, SHE SHOOK HER HEAD, A FRANTIC, SILENT PLEA.",
+                nextSegment: 67
+            },
+            67: {
+                comment: "player choice",
+                text: "",
+                choices: [
+                    {
+                        text: "stay in the car",
+                        nextSegment: 68
+                    },
+                    {
+                        text: "join them",
+                        nextSegment: 76
+                    }
+                ]
+            },
+            // Path: Stay in the car
+            68: {
+                comment: "choice 1 - stay in the car start",
+                text: "YOU BOTH SHRANK LOWER, MAKING YOURSELVES SMALL IN THE CAVE OF THE CAR. YOUR ELBOWS BRUSHED, A SHARP, CLUMSY NOISE IN THE QUIET.",
+                nextSegment: 69
+            },
+            69: {
+                comment: "typewriter",
+                text: "HEAVY FOOTFALLS APPROACHED. A KNOCK ON THE GLASS, POLITE AND TERRIBLE. \"JIM\" STOOD OUTSIDE. HE DID NOT SPEAK AGAIN, ONLY REPEATED THE INVITATION, A BROKEN RECORD: *COULD YOU COME OVER HERE?*",
+                nextSegment: 70
+            },
+            70: {
+                comment: "typewriter",
+                text: "ANGEL'S BREATH HISSED BETWEEN HER TEETH. A CURSE, OR A PRAYER.",
+                nextSegment: 71
+            },
+            71: {
+                comment: "typewriter",
+                text: "OTHER SHAPES CONVERGED. \"LUIGI\" AND \"POLINAR\" TOOK THEIR PLACES AT THE WINDOWS. THEIR MOUTHS MOVED IN PERFECT SYNCHRONY, ECHOING THE SAME HOLLOW PHRASE. *COULD YOU COME OVER HERE. COULD YOU COME OVER HERE.*",
+                nextSegment: 72
+            },
+            72: {
+                comment: "typewriter",
+                text: "ANGEL LEANED IN, HER LIPS ALMOST TOUCHING YOUR EAR.",
+                nextSegment: 73
+            },
+            73: {
+                comment: "typewriter; comment: color #4a7bff",
+                text: "[color=#4a7bff]\"I think I have a plan. But you're gonna have to listen to me? Is that good with you?\"[/color]",
+                nextSegment: 74
+            },
+            74: {
+                text: "",
+                playerDialogue: "Yes.",
+                nextSegment: 75
+            },
+            75: {
+                comment: "typewriter",
+                text: "A WHISPER, BUT IT RANG OUT LIKE A SHOUT IN A TOMB. THE THREE DOORS OPENED AT ONCE. THE FIGURES LEANED IN, AND THEIR FACES WERE REVEALED. IT WAS NOT MONSTROSITY, BUT AN ABSENCE SO COMPLETE IT FELT LIKE A BLOW. THEN, THE WHITE LIGHT RETURNED, NOT FROM OUTSIDE, BUT FROM WITHIN THEM. IT POURED INTO THE CAR, FILLING YOUR EYES, YOUR MOUTH, YOUR LUNGS.\n\nFIRST, A COLD, ANIMAL TERROR, SHARP AS THE RUSTY NAIL.\n\nTHEN, A DEEP, WOOLLY SORROW, FOR EVERYTHING YOU HAD AND HAD NOT DONE.\n\nFINALLY, A BLISSFUL DISSOLUTION. THE BOUNDARIES MELTED. YOU WERE NO LONGER A SELF, BUT A PART OF THE SILENT, SHINING WHOLE.",
+                nextSegment: 83
+            },
+            // Path: Join them
+            76: {
+                comment: "choice 2 - join them start",
+                text: "OBLIVIOUS, OR PERHAPS WILLING THE NORMALCY BACK, YOU CALLED OUT.",
+                nextSegment: 77
+            },
+            77: {
+                text: "",
+                playerDialogue: "Yes.",
+                nextSegment: 78
+            },
+            78: {
+                comment: "typewriter; comment: color #4a7bff",
+                text: "[color=#4a7bff]\"YOU IDIOT!\"[/color]",
+                nextSegment: 79
+            },
+            79: {
+                comment: "typewriter",
+                text: "ANGEL'S CRY WAS THE LAST DISTINCT THING YOU HEARD. THE DOORS BURST OPEN. THE FIGURES LEANED IN. THEIR FACES WERE NOT FACES, BUT PORTALS TO A BLINDING, FEATURELESS DAWN. THE LIGHT SWALLOWED YOU WHOLE.\n\nFIRST, A PIERCING, WIRE-TAUT FEAR.\n\nTHEN, A SORROW AS VAST AND DARK AS A NIGHT SEA.\n\nTHEN, A BLISS THAT ERASED ALL ELSE. YOU WERE SCATTERED, THEN GATHERED. YOU WERE ONE WITH THE PULSING, RADIANT ALL.",
+                nextSegment: 83
+            },
+            // End
+            83: {
+                comment: "END",
+                text: "[END OF TRANSMISSION]\n\n[RETURNING TO PRIMARY PROTOCOL...]",
+                nextSegment: undefined // Ends narrative
             }
         };
 
@@ -197,6 +639,11 @@
             audioPre: document.getElementById('bg-music-pre'),
             typewriterInterval: null, // Track typewriter interval
             isTyping: false, // Prevent actions during typing
+            narrativeIndex: 0,
+            narrativePath: null,
+            narrativeChoices: [],
+            narrativeTyping: false,
+            narrativeTypeInterval: null,
 
             /* --- LOGIN LOGIC --- */
             attemptLogin: function() {
@@ -362,14 +809,361 @@
                 }
             },
 
+            /* --- NARRATIVE LOGIC --- */
             gameWon: function() {
                 SoundFX.playWin();
                 const status = document.getElementById('game-status');
                 status.style.color = "#00ff00";
                 status.textContent = "CHALLENGE COMPLETE. ACCESS GRANTED.";
                 setTimeout(() => {
-                    this.transition('game-screen', 'gift-screen', () => this.initGift());
+                    // Changed: Go to narrative prompt instead of gift directly
+                    this.transition('game-screen', 'narrative-prompt-screen', () => {
+                        // Focus for keyboard input
+                        document.querySelector('#narrative-prompt-screen .action-btn').focus();
+                    });
                 }, 1500);
+            },
+
+            skipNarrative: function() {
+                SoundFX.playSuccess();
+                this.transition('narrative-prompt-screen', 'gift-screen', () => this.initGift());
+            },
+
+            startNarrative: function() {
+                SoundFX.playSuccess();
+                this.narrativeIndex = 0;
+                this.narrativePath = 'default';
+                this.narrativeChoices = [];
+                
+                this.transition('narrative-prompt-screen', 'narrative-screen', () => {
+                    this.loadNarrativeSegment(0);
+                    // Add keyboard shortcuts for choices
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key >= '1' && e.key <= '3' && !this.narrativeTyping) {
+                            const choiceIndex = parseInt(e.key) - 1;
+                            const choiceBtn = document.querySelectorAll('#narrative-choices .choice-btn')[choiceIndex];
+                            if (choiceBtn) choiceBtn.click();
+                        }
+                    });
+                });
+            },
+
+            loadNarrativeSegment: function(segmentId) {
+                if (this.narrativeTypeInterval) {
+                    clearInterval(this.narrativeTypeInterval);
+                    this.narrativeTypeInterval = null;
+                }
+                
+                // Remove any existing continue handler
+                if (this.narrativeContinueHandler) {
+                    document.removeEventListener('keydown', this.narrativeContinueHandler);
+                    this.narrativeContinueHandler = null;
+                }
+                
+                this.narrativeTyping = true;
+                const segment = NARRATIVE_DATA[segmentId];
+                const textContainer = document.getElementById('narrative-text');
+                const dialogueContainer = document.getElementById('narrative-dialogue');
+                const choicesContainer = document.getElementById('narrative-choices');
+                const progressDisplay = document.getElementById('narrative-progress');
+                
+                // Clear previous content
+                textContainer.innerHTML = '';
+                dialogueContainer.innerHTML = '';
+                choicesContainer.innerHTML = '';
+                
+                // Display comment if exists
+                if (segment.comment) {
+                    const comment = document.createElement('div');
+                    comment.innerHTML = `<span style="color: #666;">// ${segment.comment}</span>`;
+                    textContainer.appendChild(comment);
+                }
+                
+                // Display transition if exists
+                if (segment.transition) {
+                    const trans = document.createElement('div');
+                    trans.innerHTML = `<span style="color: #888;">[trans.: ${segment.transition}]</span>`;
+                    textContainer.appendChild(trans);
+                }
+                
+                // Function to show buttons after text is complete
+                const showButtons = () => {
+                    this.narrativeTyping = false;
+                    
+                    // Display player dialogue if exists
+                    if (segment.playerDialogue) {
+                        const playerDiv = document.createElement('div');
+                        playerDiv.style.color = '#fff';
+                        playerDiv.style.fontWeight = 'bold';
+                        playerDiv.style.marginTop = '10px';
+                        playerDiv.style.borderLeft = '2px solid #fff';
+                        playerDiv.style.paddingLeft = '10px';
+                        playerDiv.textContent = `YOU: "${segment.playerDialogue}"`;
+                        dialogueContainer.appendChild(playerDiv);
+                    }
+                    
+                    // Display choices if they exist
+                    if (segment.choices && segment.choices.length > 0) {
+                        segment.choices.forEach((choice, index) => {
+                            const btn = document.createElement('button');
+                            btn.className = 'choice-btn';
+                            btn.textContent = `(${index + 1}) ${choice.text}`;
+                            btn.style.display = 'block';
+                            btn.style.width = '100%';
+                            btn.style.marginBottom = '5px';
+                            btn.style.padding = '8px';
+                            btn.style.textAlign = 'left';
+                            btn.style.background = 'rgba(0,0,0,0.3)';
+                            btn.style.border = '1px solid #666';
+                            btn.style.color = '#aaa';
+                            btn.style.cursor = 'pointer';
+                            btn.onclick = () => {
+                                if (this.narrativeTyping) return;
+                                SoundFX.playType();
+                                this.narrativeChoices.push(index + 1);
+                                this.loadNarrativeSegment(choice.nextSegment);
+                            };
+                            choicesContainer.appendChild(btn);
+                        });
+                    } else if (segment.nextSegment !== undefined) {
+                        // Add a Continue button instead of auto-advancing
+                        const continueBtn = document.createElement('button');
+                        continueBtn.className = 'choice-btn';
+                        continueBtn.textContent = 'CONTINUE →';
+                        continueBtn.style.display = 'block';
+                        continueBtn.style.width = '100%';
+                        continueBtn.style.marginTop = '15px';
+                        continueBtn.style.padding = '10px';
+                        continueBtn.style.textAlign = 'center';
+                        continueBtn.style.background = 'rgba(0,0,0,0.3)';
+                        continueBtn.style.border = '1px solid #666';
+                        continueBtn.style.color = '#aaa';
+                        continueBtn.style.cursor = 'pointer';
+                        continueBtn.style.fontWeight = 'bold';
+                        continueBtn.onclick = () => {
+                            if (this.narrativeTyping) return;
+                            SoundFX.playType();
+                            this.loadNarrativeSegment(segment.nextSegment);
+                        };
+                        
+                        // Also allow Enter/Space to continue
+                        const continueHandler = (e) => {
+                            if ((e.key === 'Enter' || e.key === ' ') && !this.narrativeTyping) {
+                                e.preventDefault();
+                                SoundFX.playType();
+                                this.loadNarrativeSegment(segment.nextSegment);
+                                document.removeEventListener('keydown', continueHandler);
+                            }
+                        };
+                        document.addEventListener('keydown', continueHandler);
+                        
+                        // Store handler for cleanup
+                        this.narrativeContinueHandler = continueHandler;
+                        
+                        choicesContainer.appendChild(continueBtn);
+                    } else {
+                        // End of narrative
+                        const endBtn = document.createElement('button');
+                        endBtn.className = 'choice-btn';
+                        endBtn.textContent = 'PROCEED TO GIFT →';
+                        endBtn.style.display = 'block';
+                        endBtn.style.width = '100%';
+                        endBtn.style.marginTop = '15px';
+                        endBtn.style.padding = '12px';
+                        endBtn.style.textAlign = 'center';
+                        endBtn.style.background = 'rgba(0,255,0,0.1)';
+                        endBtn.style.border = '1px solid #0f0';
+                        endBtn.style.color = '#0f0';
+                        endBtn.style.cursor = 'pointer';
+                        endBtn.style.fontWeight = 'bold';
+                        endBtn.onclick = () => {
+                            if (this.narrativeTyping) return;
+                            SoundFX.playSuccess();
+                            this.transition('narrative-screen', 'gift-screen', () => this.initGift());
+                        };
+                        choicesContainer.appendChild(endBtn);
+                    }
+                    
+                    // Update progress
+                    const progress = Math.min(100, Math.round((segmentId / (Object.keys(NARRATIVE_DATA).length - 1)) * 100));
+                    progressDisplay.textContent = `${progress}%`;
+                    
+                    // Scroll to bottom
+                    textContainer.scrollTop = textContainer.scrollHeight;
+                    dialogueContainer.scrollTop = dialogueContainer.scrollHeight;
+                };
+                
+                // If segment has no text, show buttons immediately
+                if (!segment.text || segment.text.trim() === '') {
+                    showButtons();
+                    return;
+                }
+                
+                // Typewriter effect for main text
+                let textIndex = 0;
+                const textLines = segment.text.split('\n');
+                
+                const typeNextLine = () => {
+                    if (textIndex < textLines.length) {
+                        const line = textLines[textIndex];
+                        const lineDiv = document.createElement('div');
+                        lineDiv.style.marginBottom = '5px';
+                        textContainer.appendChild(lineDiv);
+                        
+                        let charIndex = 0;
+                        const typeChar = () => {
+                            if (charIndex < line.length) {
+                                // Check for color tags
+                                if (line.charAt(charIndex) === '[' && line.substring(charIndex, charIndex + 7) === '[color=') {
+                                    const endTag = line.indexOf(']', charIndex);
+                                    const color = line.substring(charIndex + 7, endTag);
+                                    const textEnd = line.indexOf('[/color]', endTag);
+                                    const coloredText = line.substring(endTag + 1, textEnd);
+                                    
+                                    const span = document.createElement('span');
+                                    span.style.color = color;
+                                    span.textContent = coloredText;
+                                    lineDiv.appendChild(span);
+                                    
+                                    charIndex = textEnd + 8;
+                                    SoundFX.playType();
+                                    this.narrativeTypeInterval = setTimeout(typeChar, segment.fast ? 10 : 40);
+                                    return;
+                                }
+                                
+                                lineDiv.textContent += line.charAt(charIndex);
+                                if (charIndex % 3 === 0) SoundFX.playType();
+                                charIndex++;
+                                this.narrativeTypeInterval = setTimeout(typeChar, segment.fast ? 10 : 40);
+                            } else {
+                                textIndex++;
+                                this.narrativeTypeInterval = setTimeout(typeNextLine, 100);
+                            }
+                        };
+                        
+                        typeChar();
+                    } else {
+                        // Text complete
+                        showButtons();
+                    }
+                };
+                
+                typeNextLine();
+                
+                const skipClickHandler = () => {
+                    if (this.narrativeTyping) {
+                        // Stop all typing immediately
+                        clearInterval(this.narrativeTypeInterval);
+                        this.narrativeTypeInterval = null;
+                        
+                        // Clear the text container
+                        textContainer.innerHTML = '';
+                        
+                        // Display comment if exists
+                        if (segment.comment) {
+                            const comment = document.createElement('div');
+                            comment.innerHTML = `<span style="color: #666;">// ${segment.comment}</span>`;
+                            textContainer.appendChild(comment);
+                        }
+                        
+                        // Display transition if exists
+                        if (segment.transition) {
+                            const trans = document.createElement('div');
+                            trans.innerHTML = `<span style="color: #888;">[trans.: ${segment.transition}]</span>`;
+                            textContainer.appendChild(trans);
+                        }
+                        
+                        // Display full text with proper color processing
+                        if (segment.text && segment.text.trim() !== '') {
+                            const textDiv = document.createElement('div');
+                            textDiv.style.marginBottom = '10px';
+                            textDiv.style.whiteSpace = 'pre-wrap';
+                            textDiv.style.lineHeight = '1.5';
+                            
+                            // Process the text for color tags
+                            let processedText = segment.text;
+                            let htmlContent = '';
+                            let currentPos = 0;
+                            
+                            // Find all [color] tags
+                            while (currentPos < processedText.length) {
+                                const colorStart = processedText.indexOf('[color=', currentPos);
+                                
+                                if (colorStart === -1) {
+                                    // No more color tags, add remaining text
+                                    htmlContent += processedText.substring(currentPos)
+                                        .replace(/\[color=[^\]]*\](.*?)\[\/color\]/g, '$1')
+                                        .replace(/\n/g, '<br>');
+                                    break;
+                                }
+                                
+                                // Add text before the color tag
+                                htmlContent += processedText.substring(currentPos, colorStart).replace(/\n/g, '<br>');
+                                
+                                // Find the color tag end
+                                const colorEnd = processedText.indexOf(']', colorStart);
+                                if (colorEnd === -1) {
+                                    currentPos = processedText.length;
+                                    break;
+                                }
+                                
+                                // Extract color
+                                const color = processedText.substring(colorStart + 7, colorEnd);
+                                
+                                // Find the closing tag
+                                const contentEnd = processedText.indexOf('[/color]', colorEnd);
+                                if (contentEnd === -1) {
+                                    currentPos = colorEnd + 1;
+                                    continue;
+                                }
+                                
+                                // Extract colored content
+                                const coloredContent = processedText.substring(colorEnd + 1, contentEnd);
+                                
+                                // Add colored span
+                                htmlContent += `<span style="color: ${color}">${coloredContent.replace(/\n/g, '<br>')}</span>`;
+                                
+                                // Move past the closing tag
+                                currentPos = contentEnd + 8;
+                            }
+                            
+                            textDiv.innerHTML = htmlContent;
+                            textContainer.appendChild(textDiv);
+                        }
+                        
+                        // Mark typing as complete
+                        this.narrativeTyping = false;
+                        
+                        // Show buttons immediately
+                        showButtons();
+                        
+                        // Remove this event listener to prevent multiple triggers
+                        textContainer.removeEventListener('click', this.currentSkipHandler);
+                    }
+                };
+
+                // [FIX] 1. Remove the OLD listener first (while this.currentSkipHandler still points to the old one)
+                if (this.currentSkipHandler) {
+                    textContainer.removeEventListener('click', this.currentSkipHandler);
+                }
+
+                // [FIX] 2. Now update the variable to the NEW handler
+                this.currentSkipHandler = skipClickHandler;
+
+                // [FIX] 3. Add the NEW listener
+                textContainer.addEventListener('click', this.currentSkipHandler);
+
+                // Also, add a keydown listener for Escape key to skip
+                const escapeHandler = (e) => {
+                    if (e.key === 'Escape' && this.narrativeTyping) {
+                        skipClickHandler();
+                        document.removeEventListener('keydown', escapeHandler);
+                    }
+                };
+                document.addEventListener('keydown', escapeHandler);
+
+                // Store escape handler for cleanup
+                this.currentEscapeHandler = escapeHandler;
             },
 
             gameLost: function() {
@@ -512,7 +1306,40 @@
                     clearTimeout(this.typewriterInterval);
                     this.typewriterInterval = null;
                 }
+                
+                // Clear narrative intervals and handlers
+                if (this.narrativeTypeInterval) {
+                    clearInterval(this.narrativeTypeInterval);
+                    this.narrativeTypeInterval = null;
+                }
+
+                // Remove narrative skip handler
+                if (this.currentSkipHandler) {
+                    const textContainer = document.getElementById('narrative-text');
+                    if (textContainer) {
+                        textContainer.removeEventListener('click', this.currentSkipHandler);
+                    }
+                    this.currentSkipHandler = null;
+                }
+
+                // Remove escape key handler
+                if (this.currentEscapeHandler) {
+                    document.removeEventListener('keydown', this.currentEscapeHandler);
+                    this.currentEscapeHandler = null;
+                }
+                
+                // Remove narrative continue handler
+                if (this.narrativeContinueHandler) {
+                    document.removeEventListener('keydown', this.narrativeContinueHandler);
+                    this.narrativeContinueHandler = null;
+                }
+                
                 this.isTyping = false;
+                this.narrativeTyping = false;
+                
+                // Rest of the original transition code...
+                
+                // Rest of the method remains the same...
                 
                 const fromEl = document.getElementById(fromId);
                 const toEl = document.getElementById(toId);
