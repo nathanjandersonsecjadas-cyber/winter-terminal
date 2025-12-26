@@ -63,7 +63,7 @@
                     { q: "When's the start of the second semester?", a: ["jan 14", "january 14", "january 14 2026", "14 jan", "14 january", "14 january 2026", "jan14", "14jan", "january14", "14january", "01.14.26", "14.01.26"] },
                     { q: "What's the titular 'caravan' in Caravan Comrades?", a: ["my car", "the car", "car", "rav4", "rav 4", "toyota rav 4", "rav 4 toyota"] },
                     { q: "What's your block?", a: ["bsit", "bs it", "it", "sse"] },
-                    { q: "What was the name for our freshman orientation?", a: ["freshstart", "fresh start", "fresh start 2025", "freshstart 2025"] },
+                    { q: "What was the name for our freshman orientation?", a: ["freshstart", "fresh start", "fresh start 2025", "freshstart 2025", "heatwave", "heat wave", "heatwave 2025", "heat wave 2025"] },
                     { q: "Will we pass the next semester?", a: ["yes", "definitely", "absolutely", "of course"] }
                 ]
             },
@@ -2709,4 +2709,5 @@ Notation Example: Kg8 (King to g8)`;
 
         document.getElementById('name-input').addEventListener("keypress", function(event) {
             if (event.key === "Enter") app.attemptLogin();
+
         });
