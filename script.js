@@ -1968,10 +1968,10 @@
                         let snakeX = snake[0].x;
                         let snakeY = snake[0].y;
 
-                        if (d === 'W') snakeY -= box;
-                        if (d === 'A') snakeX -= box;
-                        if (d === 'S') snakeY += box;
-                        if (d === 'D') snakeX += box;
+                        // if (d === 'W') snakeY -= box;
+                        // if (d === 'A') snakeX -= box;
+                        // if (d === 'S') snakeY += box;
+                        // if (d === 'D') snakeX += box;
                         
                         if (d === "LEFT") snakeX -= box;
                         if (d === "UP") snakeY -= box;
@@ -2051,10 +2051,16 @@
                         
                         SoundFX.playType();
                         
+                        // Arrow keys
                         if (event.keyCode === 37 && d !== "RIGHT") d = "LEFT";
                         else if (event.keyCode === 38 && d !== "DOWN") d = "UP";
                         else if (event.keyCode === 39 && d !== "LEFT") d = "RIGHT";
                         else if (event.keyCode === 40 && d !== "UP") d = "DOWN";
+                        // WASD keys
+                        else if ((event.keyCode === 65 || event.key === 'a' || event.key === 'A') && d !== "RIGHT") d = "LEFT";
+                        else if ((event.keyCode === 87 || event.key === 'w' || event.key === 'W') && d !== "DOWN") d = "UP";
+                        else if ((event.keyCode === 68 || event.key === 'd' || event.key === 'D') && d !== "LEFT") d = "RIGHT";
+                        else if ((event.keyCode === 83 || event.key === 's' || event.key === 'S') && d !== "UP") d = "DOWN";
                     }
                     
                     // Event listeners
