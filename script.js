@@ -1968,10 +1968,10 @@
                         let snakeX = snake[0].x;
                         let snakeY = snake[0].y;
 
-                        if (d === "W") snakeY -= box;
-                        if (d === "A") snakeX -= box;
-                        if (d === "S") snakeY += box;
-                        if (d === "D") snakeX += box;
+                        if (d === 'W') snakeY -= box;
+                        if (d === 'A') snakeX -= box;
+                        if (d === 'S') snakeY += box;
+                        if (d === 'D') snakeX += box;
                         
                         if (d === "LEFT") snakeX -= box;
                         if (d === "UP") snakeY -= box;
